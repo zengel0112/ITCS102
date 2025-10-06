@@ -33,7 +33,7 @@ body {
 }
 
 .content-container {
-    background-color: #B4E6B4;
+    background-color: #b2e4b1;
     width: 70%;
     max-width: 1200px;
     min-height: 100vh;
@@ -222,7 +222,12 @@ body {
     line-height: 1.5;
     white-space: pre;
     overflow-x: auto;
+    transition: opacity 0.15s ease-in-out;
 }
+
+/* Persistent highlight styles for sync highlighting */
+.line-highlight { transition: background-color 0.12s ease; }
+.line-highlight-active { display: inline; padding: 0 0; background: rgba(255,192,203,0.25); border-radius: 0; }
 
 /* XP-style scrollbars for code blocks */
 .code-block::-webkit-scrollbar {

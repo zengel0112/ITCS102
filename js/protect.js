@@ -24,3 +24,6 @@ setInterval(() => {
 // Add warning message
 console.log('%cStop!', 'color: red; font-size: 50px; font-weight: bold; text-shadow: 2px 2px 0 #000;');
 console.log('%cThis is a protected page.', 'color: red; font-size: 20px;');
+
+// Protection temporarily disabled
+console.log('%cProtection is temporarily disabled', 'color: green; font-size: 14px;');

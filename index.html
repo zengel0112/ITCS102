@@ -42,7 +42,13 @@
         kara.<span class="yellow-text">putLeaf</span>()
     kara.<span class="yellow-text">move</span>()</div>
             <div class="kara-container">
-                <img src="gifs/kara1.gif" alt="Kara the Ladybug" class="kara-gif">
+                <!-- 
+                    autoplay → автоматаар эхэлнэ
+                    loop → дахин дахин давтагдана
+                    muted → дуу байхгүй
+                    playsinline → mobile дээр fullscreen гаргахгүй, inline тоглоно
+                -->
+                <video src="gifs/kara1.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
@@ -50,23 +56,13 @@
             <strong>Даалгавар 2a – Kara, the tunnel seeker I.</strong> Kaрa нэгэн шулуун хонгилын орох хэсгийг хайна. Чанх урагш явахад өмнө нь хонгил байгаа гэдгийг тэр мэднэ. Хонгил доторх эхний нүдэнд түүнийг хүргээд зогсоох програмыг бичнэ үү. Гэхдээ болгоомжтой: Зарим хонгилуудын нэг талд нь хана байна, заримдаа зүүн, заримдаа баруун талд нь!
         </div>
         <div class="flex-row-container">
-            <div class="solution-container">
-                <div>
-                    <div class="solution-label">Solution 1:</div>
-                    <div class="code-block"><span class="blue-text">while</span> <span class="blue-text">not</span> kara.treeFront():
+            <div class="code-block"><span class="blue-text">while</span> <span class="blue-text">not</span> kara.treeFront():
     <span class="blue-text">if</span> <span class="blue-text">not</span> (kara.treeLeft() <span class="blue-text">and</span> kara.treeRight()):
         kara.<span class="yellow-text">move</span>()
     <span class="blue-text">else</span>:
         <span class="blue-text">break</span></div>
-                </div>
-                <div>
-                    <div class="solution-label">Solution 2:</div>
-                    <div class="code-block"><span class="blue-text">while</span> <span class="blue-text">not</span> (kara.treeFront() <span class="blue-text">or</span> kara.treeLeft() <span class="blue-text">and</span> kara.treeRight()):
-    kara.<span class="yellow-text">move</span>()</div>
-                </div>
-            </div>
             <div class="kara-container">
-                <img src="gifs/kara2a.gif" alt="Kara the Ladybug" class="kara-gif">
+                <video src="gifs/kara2a.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
@@ -74,26 +70,15 @@
             <strong>Даалгавар 2b – Kara, the tunnel seeker II.</strong> Kaрa тэр хонгилын гарцыг олохыг хүсч байна. Энэ үйлдлийг гүйцэтгэхийн тулд тэр эхлээд хонгил дундуур явах хэрэгтэй. Хонгилоос гараад эхний нүдэнд түүнийг зогсоох програмыг бичнэ үү. Хонгилын төгсгөл хүртэл явж болохгүйг анхаарна уу! Санамж: Шийдэл хоёр төлвийг шаардана! Яагаад нэг төлвөөр шийдэх боломжгүй вэ гэдэг талаар бодож үзнэ үү!, Stop State not included!
         </div>
         <div class="flex-row-container">
-            <div class="code-block"><span class="green-text"># Constants</span>
-STATE_STRAIGHT = 1   <span class="green-text"># 2a: шулуун хонгилын эх хүртэл алхах</span>
-STATE_OBSTACLE = 2   <span class="green-text"># 2b: хоёр талд мод гарах үед алхах</span>
-
-state = STATE_STRAIGHT
-
-<span class="blue-text">while</span> <span class="blue-text">not</span> kara.treeFront():
-    <span class="blue-text">if</span> state == STATE_STRAIGHT:
-        <span class="blue-text">if</span> kara.treeLeft() <span class="blue-text">and</span> kara.treeRight():
-            state = STATE_OBSTACLE
-        <span class="blue-text">else</span>:
+            <div class="code-block"><span class="blue-text">while</span> <span class="blue-text">not</span> kara.treeFront():
+    kara.<span class="yellow-text">move</span>()
+    <span class="blue-text">if</span> kara.treeLeft() <span class="blue-text">and</span> kara.treeRight():
+        <span class="blue-text">while</span> kara.treeLeft() <span class="blue-text">and</span> kara.treeRight():
             kara.<span class="yellow-text">move</span>()
-    
-    <span class="blue-text">elif</span> state == STATE_OBSTACLE:
-        <span class="blue-text">if</span> kara.treeLeft() <span class="blue-text">and</span> kara.treeRight():
-            kara.<span class="yellow-text">move</span>()
-        <span class="blue-text">else</span>:
+        <span class="blue-text">if</span> <span class="blue-text">not</span> kara.treeFront():
             <span class="blue-text">break</span></div>
             <div class="kara-container">
-                <img src="gifs/kara2b.gif" alt="Kara the Ladybug" class="kara-gif">
+                <video src="gifs/kara2b.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
@@ -114,7 +99,7 @@ state = STATE_STRAIGHT
         kara.<span class="yellow-text">move</span>()
         kara.<span class="yellow-text">turnLeft</span>()</div>
             <div class="kara-container">
-                <img src="gifs/kara3a.gif" alt="Kara the Ladybug" class="kara-gif">
+                <video src="gifs/kara3a.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
@@ -122,41 +107,31 @@ state = STATE_STRAIGHT
             <strong>Даалгавар 3b – Searching cloverleafs in a forrest II</strong> Даалгавар 3a-д зохиосон програмыг хэд хэдэн зэрэгцсэн мод байхад ч Караг навчинд хүргэдэг болгож програмыг өргөтгөнө үү. Санамж: Энэ даалгаврын шийдэлд хоёр төлөв шаардлагатай. Яагаад нэг төлөв хангалтгүй вэ?
         </div>
         <div class="flex-row-container">
-            <div class="code-block"><span class="green-text"># Constants</span>
-STATE_STRAIGHT = 1     <span class="green-text"># Энгийн урагш явах, ганц мод тааралдахад тойрох</span>
-STATE_AROUND_OBSTACLE = 2     <span class="green-text"># Олон зэрэгцсэн модыг тойрож байх төлөв</span>     
-
-state = STATE_STRAIGHT
-
-<span class="blue-text">while</span> <span class="blue-text">not</span> kara.onLeaf():
-    <span class="blue-text">if</span> state == STATE_STRAIGHT:
-        <span class="blue-text">if</span> <span class="blue-text">not</span> kara.treeFront():
-            kara.<span class="yellow-text">move</span>()
-        <span class="blue-text">else</span>:
-            state = STATE_AROUND_OBSTACLE
-            
-    <span class="blue-text">elif</span> state == STATE_AROUND_OBSTACLE:
+            <div class="code-block"><span class="blue-text">while</span> <span class="blue-text">not</span> kara.onLeaf():
+    <span class="blue-text">if</span> <span class="blue-text">not</span> kara.treeFront():
+        kara.<span class="yellow-text">move</span>()
+    <span class="blue-text">else</span>:
         kara.<span class="yellow-text">turnLeft</span>()
         kara.<span class="yellow-text">move</span>()
         kara.<span class="yellow-text">turnRight</span>()
         kara.<span class="yellow-text">move</span>()
-        
         <span class="blue-text">while</span> kara.treeRight():
             kara.<span class="yellow-text">move</span>()
-        
+            <span class="blue-text">if</span> <span class="blue-text">not</span> kara.treeRight():
+                <span class="blue-text">break</span>
         kara.<span class="yellow-text">turnRight</span>()
         kara.<span class="yellow-text">move</span>()
-        kara.<span class="yellow-text">turnLeft</span>()
-        
-        <span class="blue-text">if</span> <span class="blue-text">not</span> kara.treeFront():
-            state = STATE_STRAIGHT</div>
+        kara.<span class="yellow-text">turnLeft</span>()</div>
             <div class="kara-container">
-                <img src="gifs/kara3b.gif" alt="Kara the Ladybug" class="kara-gif">
+                <video src="gifs/kara3b.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
         <div class="task-description">
             <strong>Даалгавар 4 – The Labyrinth.</strong> Kaрa модоор хүрээлсэн төөрдөг байшинд байна. Төөрдөг байшингийн төгсгөлд түүнийг аваачих програмыг бичнэ үү! Тэр тэнд нэг навч тэмдэг болгож тавина. Ингээд програм зогсоно.
+        </div>
+        <div style="text-align: center; margin-bottom: 10px; font-weight: bold; color: #333;">
+            nah i ain't highlight this one bro read it yourself 💀
         </div>
         <div class="flex-row-container">
             <div class="code-block"><span class="blue-text">while</span> True:
@@ -172,7 +147,7 @@ state = STATE_STRAIGHT
         kara.<span class="yellow-text">putLeaf</span>()
         <span class="blue-text">break</span></div>
             <div class="kara-container">
-                <img src="gifs/kara4.gif" alt="Kara the Ladybug" class="kara-gif">
+                <video src="gifs/kara4.webm" class="kara-gif" autoplay loop muted playsinline>
             </div>
         </div>
 
@@ -186,7 +161,7 @@ state = STATE_STRAIGHT
                     Алдаатай: Урд болон баруун талд модтой үед л зүүн эргэдэг болохоор, хана баруун талдаа хоосон үед Кара буруу замаар яваад loop үүсч байсан. 
                 </div>
                 <div class="kara-container">
-                    <img src="gifs/task4sub1.gif" alt="Normal case - Complete walls" class="kara-gif">
+                    <video src="gifs/task4sub1.webm" class="kara-gif" autoplay loop muted playsinline>
                 </div>
             </div>
             
@@ -195,7 +170,7 @@ state = STATE_STRAIGHT
                     Тогтвортой: Баруун тал хоосон бол зүүн тал хоосон байх нь хамаагүй. Шууд л баруун явна, хэвийн ажиллана. Учир нь баруун гарын дүрмийг ашигласан. Right>Left.
                 </div>
                 <div class="kara-container">
-                    <img src="gifs/task4sub2.gif" alt="Error case - Wall gap" class="kara-gif">
+                    <video src="gifs/task4sub2.webm" class="kara-gif" autoplay loop muted playsinline>
                 </div>
             </div>
             
@@ -204,10 +179,12 @@ state = STATE_STRAIGHT
                     Сайжруулсан: Кара урд модгүй байвал урагшаа шууд явдаг, Баруун тал хоосон байх нь хамаагүй гэсэн үг. Front>Right>Left.
                 </div>
                 <div class="kara-container">
-                    <img src="gifs/task4sub3.gif" alt="Improved case - With gap handling" class="kara-gif"> 
+                    <video src="gifs/task4sub3.webm" class="kara-gif" autoplay loop muted playsinline> 
                 </div>
             </div>
         </div>
+        <!-- Desktop pet: single variant -->
+        <img id="kara-pet" src="desktop_pet/kara.png" alt="kara pet" aria-hidden="true">
     </div>
 </body>
 </html>
