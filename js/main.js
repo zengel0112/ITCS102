@@ -90,10 +90,17 @@ document.addEventListener('DOMContentLoaded', function() {
             [3.9, 4.7, 14], [7.0, 7.8, 14], [9.8, 10.3, 14], // kara.turnLeft()
         ],
         'kara4': [
-            // Placeholder mapping for task 4 - you can edit these timings later
-            [0.0, 0.0, 0],  // while True:
-            [0.0, 0.0, 1],  // if not kara.treeFront():
-            [0.0, 0.0, 2]   // kara.move()
+            [0.0, 16.0, 0],  // while True:
+            [0.0, 16.0, 1],   // if not kara.treeFront():
+            [0.0, 16.0, 2],   // kara.move()
+            [5.0, 6.8, 3], [8.3, 8.9, 3], [10.3, 12.2, 3], [15.0, 15.6, 3],// elif not kara.treeRight():
+            [5.0, 6.8, 4], [8.3, 8.9, 4], [10.3, 12.2, 4], [15.0, 15.6, 4],// kara.turnRight()
+            [5.0, 6.8, 5], [8.3, 8.9, 5], [10.3, 12.2, 5], [15.0, 15.6, 5],// kara.move()
+            [2.4, 4.0, 6], [6.9, 7.5, 6], [12.5, 13.2, 6], [14.0, 14.6, 6],// else:
+            [2.4, 4.0, 7], [6.9, 7.5, 7], [12.5, 13.2, 7], [14.0, 14.6, 7],// kara.turnLeft()
+            [16.0, 20.0, 8], // if kara.treeFront() and kara.treeLeft() and kara.treeRight():
+            [16.0, 20.0, 9], // kara.putLeaf()
+            [16.0, 20.0, 10] // break
         ]
     };
 
