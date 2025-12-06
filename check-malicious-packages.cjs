@@ -232,8 +232,11 @@ function checkDependencies(obj, path = '') {
     });
   }
   
+  // Recursively check all keys except "dependencies" (already processed above)
   Object.keys(obj).forEach(key => {
-    checkDependencies(obj[key], `${path}.${key}`);
+    if (key !== 'dependencies') {
+      checkDependencies(obj[key], `${path}.${key}`);
+    }
   });
 }
 
