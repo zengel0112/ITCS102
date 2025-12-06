@@ -18,7 +18,7 @@ html {.profile-img {
 }
 
 body {
-    background-image: url('../background/1360352.png');
+    background-image: url('../background/bliss.jpg');
     background-color: black;
     background-size: cover;
     background-position: center;
@@ -34,7 +34,7 @@ body {
 }
 
 .content-container {
-    background-color: #b2e4b1;
+    background-color: #a4e7ad;
     width: 70%;
     max-width: 1200px;
     min-height: 100vh;
@@ -266,6 +266,9 @@ body {
     clip-path: inset(0 0 0 4px);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    will-change: contents;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .blue-text {
@@ -364,8 +367,53 @@ body {
 }
 
 /* Small screens - stack case containers */
+.pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+    padding: 2rem 0;
+}
+
+.next-page-btn,
+.prev-page-btn {
+    background: linear-gradient(to right, #3c96d6, #1c5a8b);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: 'Cascadia Code', monospace;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.next-page-btn:hover,
+.prev-page-btn:hover {
+    background: linear-gradient(to right, #4aa6e6, #2c6a9b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.next-page-btn:active,
+.prev-page-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.page-2 {
+    margin-top: 0;
+}
+
 @media (max-width: 768px) {
     .case-container {
         min-width: 100%;
+    }
+    
+    .next-page-btn,
+    .prev-page-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
     }
 }
