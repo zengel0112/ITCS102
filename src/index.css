@@ -137,14 +137,16 @@
     perspective: 1200px;
     pointer-events: none;
   } */
-
-  /* .header-logo-overlay img {
-    max-width: 260px;
-    opacity: 0.3;
+  .header-logo-overlay img {
+    width: 100%;
+    max-width: 660px;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.6;
     transform-origin: center;
-    transform: rotateY(25deg) rotateX(18deg) translateX(-40px) translateY(10px) scale(1.2);
     filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.7));
-  } */
+  }
+  
 
   .code-block {
     @apply bg-bg-dark text-text-light p-4 md:p-6 rounded-lg flex-1 w-full max-w-full text-sm md:text-base lg:text-lg leading-relaxed whitespace-pre overflow-x-auto transition-opacity duration-150;

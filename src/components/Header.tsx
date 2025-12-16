@@ -5,7 +5,11 @@ const Header = () => {
     <AuroraBackground className="header-container w-full p-6 md:p-8 lg:p-12 mb-8 md:mb-12 lg:mb-16 rounded-lg shadow-md bg-gradient-to-b from-gray-600 to-gray-800 border border-blue-300/50 relative overflow-hidden">
       {/* University logo overlay */}
       <div className="header-logo-overlay pointer-events-none">
-        <img src={`${import.meta.env.BASE_URL}badge/logo-eng.png`} alt="" />
+        <img
+          src={`${import.meta.env.BASE_URL}badge/logo-eng.png`}
+          alt=""
+          decoding="async"
+        />
       </div>
       <div className="header-content flex justify-between items-center gap-8 relative z-10">
         <h1
@@ -28,12 +32,16 @@ const Header = () => {
               alt="Frame"
               className="frame-img absolute top-0 left-0 w-full h-full z-[2]"
               draggable={false}
+              loading="lazy"
+              decoding="async"
             />
             <img
               src={`${import.meta.env.BASE_URL}avatar/profilepic.png`}
               alt="Profile Picture"
               className="profile-img absolute top-[-40px] left-[0px] w-[calc(100%+80px)] h-[calc(100%+80px)] z-[1] rounded-full object-cover scale-[0.85]"
               draggable={false}
+              loading="lazy"
+              decoding="async"
             />
             <div
               className="hover-info absolute bg-gradient-to-b from-[#3c96d6] to-[#1c5a8b] text-white py-2 px-3 rounded whitespace-nowrap top-full left-1/2 -translate-x-1/2 translate-y-2.5 opacity-0 invisible transition-all duration-300 z-[3] border border-[#1c5a8b] text-[0.9rem] pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 group-active:opacity-100 group-active:visible group-active:translate-y-1"
