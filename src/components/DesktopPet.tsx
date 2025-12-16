@@ -1,5 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
+const PET_VARIANTS = [
+  "desktop_pet/kara.png",
+  "desktop_pet/kara_blue.png",
+  "desktop_pet/kara_gray.png",
+  "desktop_pet/kara_purple.png",
+  "desktop_pet/kara_yellow.png",
+] as const;
+
+// Keep the same variant while the SPA is alive,
+// but pick a new one on full page reload.
+let currentPetVariant: (typeof PET_VARIANTS)[number] | null = null;
+
 const DesktopPet = () => {
   const petRef = useRef<HTMLImageElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -7,6 +19,14 @@ const DesktopPet = () => {
   const targetRef = useRef({ x: 0, y: 0 });
   const movingRef = useRef(true);
   const containerRef = useRef<HTMLElement | null>(null);
+
+  const [petSrc] = useState(() => {
+    if (!currentPetVariant) {
+      currentPetVariant =
+        PET_VARIANTS[Math.floor(Math.random() * PET_VARIANTS.length)];
+    }
+    return `${import.meta.env.BASE_URL}${currentPetVariant}`;
+  });
 
   const PET_SIZE = 30;
   const STEP = 20;
@@ -355,7 +375,7 @@ const DesktopPet = () => {
     <img
       ref={petRef}
       id="kara-pet"
-      src="/desktop_pet/kara.png"
+      src={petSrc}
       alt="kara pet"
       aria-hidden="true"
       className="absolute z-[9999] block w-9 h-9 touch-none pointer-events-auto"

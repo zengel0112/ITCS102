@@ -2,7 +2,11 @@ import { AuroraBackground } from "./ui/aurora-background";
 
 const Header = () => {
   return (
-    <AuroraBackground className="header-container w-full p-6 md:p-8 lg:p-12 mb-8 md:mb-12 lg:mb-16 rounded-lg shadow-md bg-gradient-to-b from-gray-600 to-gray-800 border border-blue-300/50">
+    <AuroraBackground className="header-container w-full p-6 md:p-8 lg:p-12 mb-8 md:mb-12 lg:mb-16 rounded-lg shadow-md bg-gradient-to-b from-gray-600 to-gray-800 border border-blue-300/50 relative overflow-hidden">
+      {/* University logo overlay */}
+      <div className="header-logo-overlay pointer-events-none">
+        <img src={`${import.meta.env.BASE_URL}badge/logo-eng.png`} alt="" />
+      </div>
       <div className="header-content flex justify-between items-center gap-8 relative z-10">
         <h1
           className="page-title text-xl md:text-2xl lg:text-3xl leading-snug px-4 relative m-0 flex-1 font-extrabold"
@@ -20,13 +24,13 @@ const Header = () => {
         <div className="avatar-container-desktop flex-shrink-0 relative hidden md:block">
           <div className="avatar-frame relative w-[150px] h-[150px] cursor-pointer group">
             <img
-              src="/avatar/frame.png"
+              src={`${import.meta.env.BASE_URL}avatar/frame.png`}
               alt="Frame"
               className="frame-img absolute top-0 left-0 w-full h-full z-[2]"
               draggable={false}
             />
             <img
-              src="/avatar/profilepic.png"
+              src={`${import.meta.env.BASE_URL}avatar/profilepic.png`}
               alt="Profile Picture"
               className="profile-img absolute top-[-40px] left-[0px] w-[calc(100%+80px)] h-[calc(100%+80px)] z-[1] rounded-full object-cover scale-[0.85]"
               draggable={false}

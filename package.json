@@ -10,10 +10,10 @@
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "check-security": "node check-malicious-packages.cjs"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "lucide-react": "^0.561.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

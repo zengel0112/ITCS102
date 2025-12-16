@@ -18,40 +18,33 @@ function App() {
     localStorage.setItem("currentPage", currentPage.toString());
   }, [currentPage]);
 
-  // Prefetch videos for current page and next page
+  // Prefetch videos for ALL pages once to make navigation smoother
   useEffect(() => {
     const prefetchVideos = async (tasks: typeof tasksPage1) => {
+      const baseUrl = import.meta.env.BASE_URL || "/";
       const prefetchPromises = tasks.map(async (task) => {
-        const videos = [task.videoSrc, task.videoSrc2].filter(Boolean) as string[];
+        const videos = [task.videoSrc, task.videoSrc2].filter(
+          Boolean
+        ) as string[];
         return videos.map(async (videoSrc) => {
           try {
-            // Use link prefetch for better browser optimization
-            const link = document.createElement('link');
-            link.rel = 'prefetch';
-            link.href = videoSrc;
-            link.as = 'video';
+            const link = document.createElement("link");
+            link.rel = "prefetch";
+            link.href = `${baseUrl}${videoSrc.replace(/^\//, "")}`;
+            link.as = "video";
             document.head.appendChild(link);
-          } catch (error) {
-            // Silently fail if prefetch doesn't work
+          } catch {
+            // Ignore prefetch errors
           }
         });
       });
       await Promise.all(prefetchPromises.flat());
     };
 
-    // Prefetch videos for current page immediately
-    if (currentPage === 1) {
-      prefetchVideos(tasksPage1);
-      setTimeout(() => prefetchVideos(tasksPage2), 1000);
-    } else if (currentPage === 2) {
-      prefetchVideos(tasksPage2);
-      setTimeout(() => prefetchVideos(tasksPage1), 1000);
-      setTimeout(() => prefetchVideos(tasksPage3), 2000);
-    } else {
-      prefetchVideos(tasksPage3);
-      setTimeout(() => prefetchVideos(tasksPage2), 1000);
-    }
-  }, [currentPage]);
+    prefetchVideos(tasksPage1);
+    prefetchVideos(tasksPage2);
+    prefetchVideos(tasksPage3);
+  }, []);
 
   useEffect(() => {
     // Restore scroll position on page load/refresh
@@ -135,14 +128,14 @@ function App() {
       <div className="avatar-container-mobile fixed top-6 right-6 z-[10000] md:hidden">
         <div className="avatar-frame relative w-[150px] h-[150px] cursor-pointer group">
           <img
-            src="/avatar/frame.png"
+            src={`${import.meta.env.BASE_URL}avatar/frame.png`}
             alt="Frame"
             className="frame-img absolute top-0 left-0 w-full h-full z-[2]"
             draggable={false}
             loading="lazy"
           />
           <img
-            src="/avatar/profilepic.png"
+            src={`${import.meta.env.BASE_URL}avatar/profilepic.png`}
             alt="Profile Picture"
             className="profile-img absolute top-[-40px] left-[0px] w-[calc(100%+80px)] h-[calc(100%+80px)] z-[1] rounded-full object-cover scale-[0.85]"
             draggable={false}
@@ -161,7 +154,9 @@ function App() {
         </div>
       </div>
       <div
-        className={`content-container ${currentPage === 2 || currentPage === 3 ? "hidden" : "flex"}`}
+        className={`content-container ${
+          currentPage === 2 || currentPage === 3 ? "hidden" : "flex"
+        }`}
       >
         <Header />
 
@@ -184,7 +179,7 @@ function App() {
             </div>
             <div className="kara-container flex-1 min-w-[min(100%,300px)] text-center">
               <video
-                src="/gifs/karap1/task4sub1.webm"
+                src={`${import.meta.env.BASE_URL}gifs/karap1/task4sub1.webm`}
                 className="kara-gif max-w-full h-auto rounded-lg"
                 style={{
                   filter: "hue-rotate(8deg) saturate(1.3)",
@@ -206,7 +201,7 @@ function App() {
             </div>
             <div className="kara-container flex-1 min-w-[min(100%,300px)] text-center">
               <video
-                src="/gifs/karap1/task4sub2.webm"
+                src={`${import.meta.env.BASE_URL}gifs/karap1/task4sub2.webm`}
                 className="kara-gif max-w-full h-auto rounded-lg"
                 style={{
                   filter: "hue-rotate(8deg) saturate(1.3)",
@@ -227,7 +222,7 @@ function App() {
             </div>
             <div className="kara-container flex-1 min-w-[min(100%,300px)] text-center">
               <video
-                src="/gifs/karap1/task4sub3.webm"
+                src={`${import.meta.env.BASE_URL}gifs/karap1/task4sub3.webm`}
                 className="kara-gif max-w-full h-auto rounded-lg"
                 style={{
                   filter: "hue-rotate(8deg) saturate(1.3)",
@@ -242,8 +237,7 @@ function App() {
           </div>
         </div>
 
-        <DesktopPet />
-        <ScrollToTop />
+        {currentPage === 1 && <DesktopPet />}
       </div>
       <Pagination
         type="next"
@@ -261,6 +255,7 @@ function App() {
         {tasksPage2.map((task, index) => (
           <TaskSection key={index} task={task} />
         ))}
+        {currentPage === 2 && <DesktopPet />}
       </div>
       <Pagination
         type="prev"
@@ -285,6 +280,7 @@ function App() {
         {tasksPage3.map((task, index) => (
           <TaskSection key={index} task={task} />
         ))}
+        {currentPage === 3 && <DesktopPet />}
       </div>
       {currentPage === 3 && (
         <Pagination
@@ -293,6 +289,8 @@ function App() {
           currentPage={currentPage}
         />
       )}
+
+      <ScrollToTop />
     </>
   );
 }

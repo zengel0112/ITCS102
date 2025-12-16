@@ -62,7 +62,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/background/blissrainbow.jpg');
+    background-image: var(--bg-desktop);
     background-color: black;
     background-size: cover;
     background-position: center;
@@ -76,7 +76,7 @@
   /* Small mobile devices (iPhones, but not iPads) */
   @media (max-width: 640px) and (max-height: 1000px) {
     body::before {
-      background-image: url('/background/blissrainbowmobile.jpg');
+      background-image: var(--bg-mobile);
     }
   }
 
@@ -87,7 +87,7 @@
 
 @layer components {
   .code-highlight {
-    @apply bg-yellow-500/25;
+    @apply bg-pink-400/60;
   }
 
   /* Aurora Background Animation */
@@ -125,6 +125,26 @@
       inset 0 -2px 8px rgba(255, 255, 255, 0.2),
       inset 0 0 20px rgba(255, 255, 255, 0.15);
   }
+
+  /* .header-logo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    pointer-events: none;
+  } */
+
+  /* .header-logo-overlay img {
+    max-width: 260px;
+    opacity: 0.3;
+    transform-origin: center;
+    transform: rotateY(25deg) rotateX(18deg) translateX(-40px) translateY(10px) scale(1.2);
+    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.7));
+  } */
 
   .code-block {
     @apply bg-bg-dark text-text-light p-4 md:p-6 rounded-lg flex-1 w-full max-w-full text-sm md:text-base lg:text-lg leading-relaxed whitespace-pre overflow-x-auto transition-opacity duration-150;

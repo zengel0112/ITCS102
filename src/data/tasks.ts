@@ -168,14 +168,23 @@ export const tasksPage2: Task[] = [
     <span class="text-code-blue">if</span> <span class="text-code-blue">not</span> kara.treeFront():
         <span class="text-code-blue">if</span> <span class="text-code-blue">not</span> kara.treeRight():
             kara.<span class="text-code-yellow">turnRight</span>()
-        kara.<span class="text-code-yellow">move</span>()
-    <span class="text-code-blue">elif</span> <span class="text-code-blue">not</span> kara.treeRight():
-        kara.<span class="text-code-yellow">turnRight</span>()
-        kara.<span class="text-code-yellow">move</span>()
+            kara.<span class="text-code-yellow">move</span>()
+        <span class="text-code-blue">else</span>:
+            kara.<span class="text-code-yellow">move</span>()
     <span class="text-code-blue">else</span>:
         kara.<span class="text-code-yellow">turnLeft</span>()`,
     videoSrc: '/gifs/karap2/kara1clockwise.webm',
-    mapping: [],
+    mapping: [
+      [0.0, 99.0, 0],
+      [0.0, 1.4, 1],[1.9, 4.2, 1],[4.6, 9.0, 1],[9.6, 12.2, 1],[13.3, 16.0, 1],[16.5, 18.0, 1],[18.5, 20.0, 1],[20.9, 99.0, 1],
+      [1.0, 1.8, 2],[2.8, 3.3, 2],[3.7, 3.8, 2],[6.0, 6.9, 2],[8.5, 9.5, 2],[10.5, 11.2, 2],[11.9, 12.6, 2],[14.3, 15.3, 2],[15.5, 16.0, 2],[17.5, 18.0, 2],[19.5, 20.0, 2],[21.5, 22.0, 2],[24.5, 25.0, 2],
+      [1.0, 1.8, 3],[2.8, 3.3, 3],[3.7, 3.8, 3],[6.0, 6.9, 3],[8.5, 9.5, 3],[10.5, 11.2, 3],[11.9, 12.6, 3],[14.3, 15.3, 3],[15.5, 16.0, 3],[17.5, 18.0, 3],[19.5, 20.0, 3],[21.5, 22.0, 3],[24.5, 25.0, 3],
+      [1.0, 1.8, 4],[2.8, 3.3, 4],[3.7, 3.8, 4],[6.0, 6.9, 4],[8.5, 9.5, 4],[10.5, 11.2, 4],[11.9, 12.6, 4],[14.3, 15.3, 4],[15.5, 16.0, 4],[17.5, 18.0, 4],[19.5, 20.0, 4],[21.5, 22.0, 4],[24.5, 25.0, 4],
+      [0.0, 0.0, 5],
+      [0.0, 99.0, 6],
+      [1.8, 2.4, 7],[4.2, 4.8, 7],[12.6, 13.8, 7],
+      [1.8, 2.4, 8],[4.2, 4.8, 8],[12.6, 13.8, 8],
+    ],
   },
   {
     title: '(counterclockwise).',
@@ -184,14 +193,23 @@ export const tasksPage2: Task[] = [
     <span class="text-code-blue">if</span> <span class="text-code-blue">not</span> kara.treeFront():
         <span class="text-code-blue">if</span> <span class="text-code-blue">not</span> kara.treeLeft():
             kara.<span class="text-code-yellow">turnLeft</span>()
-        kara.<span class="text-code-yellow">move</span>()
-    <span class="text-code-blue">elif</span> <span class="text-code-blue">not</span> kara.treeLeft():
-        kara.<span class="text-code-yellow">turnLeft</span>()
-        kara.<span class="text-code-yellow">move</span>()
+            kara.<span class="text-code-yellow">move</span>()
+        <span class="text-code-blue">else</span>:
+            kara.<span class="text-code-yellow">move</span>()
     <span class="text-code-blue">else</span>:
         kara.<span class="text-code-yellow">turnRight</span>()`,
     videoSrc: '/gifs/karap2/kara1counterclockwise.webm',
-    mapping: [],
+    mapping: [
+      [0.0, 99.0, 0],
+      [0.0, 4.0, 1], [4.8, 6.0, 1], [6.5, 8.0, 1], [8.5, 11.3, 1], [12.3, 15.3, 1], [15.8, 20.3, 1], [20.8, 22.8, 1],
+      [0.5, 1.2, 2], [3.6, 4.0, 2], [5.4, 6.1, 2], [7.2, 8.0, 2], [9.2, 9.9, 2], [10.8, 11.5, 2], [13.1, 13.8, 2], [14.5, 15.2, 2], [16.6, 17.1, 2], [18.6, 19.6, 2], [22.0, 22.7, 2], [23.8, 24.6, 2],
+      [0.5, 1.2, 3], [3.6, 4.0, 3], [5.4, 6.1, 3], [7.2, 8.0, 3], [9.2, 9.9, 3], [10.8, 11.5, 3], [13.1, 13.8, 3], [14.5, 15.2, 3], [16.6, 17.1, 3], [18.6, 19.6, 3], [22.0, 22.7, 3], [23.8, 24.6, 3],
+      [0.5, 1.2, 4], [3.6, 4.0, 4], [5.4, 6.1, 4], [7.2, 8.0, 4], [9.2, 9.9, 4], [10.8, 11.5, 4], [13.1, 13.8, 4], [14.5, 15.2, 4], [16.6, 17.1, 4], [18.6, 19.6, 4], [22.0, 22.7, 4], [23.8, 24.6, 4],
+      [0.0, 11.3, 5], [12.3, 15.3, 5], [15.9, 20.3, 5], [20.9, 99.3, 5],
+      [0.0, 11.3, 6], [12.3, 15.3, 6], [15.9, 20.3, 6], [20.9, 99.3, 6],
+      [11.3, 12.3, 7], [15.3, 15.9, 7], [20.3, 20.9, 7], [22.8, 23.2, 7],
+      [11.3, 12.3, 8], [15.3, 15.9, 8], [20.3, 20.9, 8], [22.8, 23.2, 8],
+    ],
   },
   {
     title: 'Даалгавар 2 – Pacman with cloverleaves (medium) - 1.',
@@ -206,22 +224,23 @@ export const tasksPage2: Task[] = [
         kara.<span class="text-code-yellow">move</span>()
         kara.<span class="text-code-yellow">turnRight</span>()`,
     videoSrc: '/gifs/karap2/kara2-1.webm',
-    mapping: [],
+    mapping: [
+      [0.0, 36.0, 0],
+      [0.0, 2.0, 1], [3.0, 4.5, 1], [5.5, 7.0, 1], [10.5, 12.0, 1], [15.5, 18.5, 1], [22.0, 23.5, 1], [24.5, 26.5, 1], [27.5, 31.5, 1], [32.5, 36.0, 1],
+      [0.0, 2.0, 2], [3.0, 4.5, 2], [5.5, 7.0, 2], [10.5, 12.0, 2], [15.5, 18.5, 2], [22.0, 23.5, 2], [24.5, 26.5, 2], [27.5, 31.5, 2], [32.5, 36.0, 2],
+      [0.0, 2.0, 3], [3.0, 4.5, 3], [5.5, 7.0, 3], [10.5, 12.0, 3], [15.5, 18.5, 3], [22.0, 23.5, 3], [24.5, 26.5, 3], [27.5, 31.5, 3], [32.5, 36.0, 3],
+
+      [2.0, 3.0, 4], [4.5, 5.5, 4], [7.0, 10.5, 4], [12.0, 15.5, 4], [18.5, 22.0, 4], [23.5, 24.5, 4], [26.5, 27.5, 4], [31.5, 32.5, 4],
+      [2.0, 3.0, 5], [4.5, 5.5, 5], [7.0, 10.5, 5], [12.0, 15.5, 5], [18.5, 22.0, 5], [23.5, 24.5, 5], [26.5, 27.5, 5], [31.5, 32.5, 5],
+      [2.0, 3.0, 6], [4.5, 5.5, 6], [7.0, 10.5, 6], [12.0, 15.5, 6], [18.5, 22.0, 6], [23.5, 24.5, 6], [26.5, 27.5, 6], [31.5, 32.5, 6],
+      [2.0, 3.0, 7], [4.5, 5.5, 7], [7.0, 10.5, 7], [12.0, 15.5, 7], [18.5, 22.0, 7], [23.5, 24.5, 7], [26.5, 27.5, 7], [31.5, 32.5, 7],
+      [2.0, 3.0, 8], [4.5, 5.5, 8], [7.0, 10.5, 8], [12.0, 15.5, 8], [18.5, 22.0, 8], [23.5, 24.5, 8], [26.5, 27.5, 8], [31.5, 32.5, 8],
+    ],
   },
   {
     title: 'Өөрийн зохиосон програмыг ялгаатай замаар шалгав.',
     description: '',
-    code: `<span class="text-code-blue">while</span> <span class="text-code-blue">not</span> kara.treeFront():
-    <span class="text-code-blue">if</span> kara.onLeaf():
-        kara.<span class="text-code-yellow">removeLeaf</span>()
-    kara.<span class="text-code-yellow">move</span>()
-    <span class="text-code-blue">if</span> <span class="text-code-blue">not</span> kara.onLeaf():
-        kara.<span class="text-code-yellow">turnLeft</span>()
-        kara.<span class="text-code-yellow">turnLeft</span>()
-        kara.<span class="text-code-yellow">move</span>()
-        kara.<span class="text-code-yellow">turnRight</span>()`,
     videoSrc: '/gifs/karap2/kara2-2.webm',
-    mapping: [],
   },
   {
     title: 'Даалгавар 3 – Slamon (medium) - 1.',
@@ -243,7 +262,38 @@ export const tasksPage2: Task[] = [
     kara.<span class="text-code-yellow">move</span>()`,
     videoSrc: '/gifs/karap2/kara3-1.webm',
     videoSrc2: '/gifs/karap2/kara3-2.webm',
-    mapping: [],
+    mapping: [
+      [0.0, 99.0, 0],
+      [0.0, 1.9, 1],[3.0, 4.7, 1],
+      [0.0, 1.9, 2],[3.0, 4.7, 2],
+      [0.0, 1.9, 3],[3.0, 4.7, 3],
+      [0.0, 1.9, 4],[3.0, 4.7, 4],
+      [0.0, 1.9, 5],[3.0, 4.7, 5],
+      [0.0, 1.9, 6],[3.0, 4.7, 6],
+      [0.0, 1.9, 7],[3.0, 4.7, 7],
+      [1.9, 3.0, 8],[4.7, 5.3, 8],
+      [1.9, 3.0, 9],[4.7, 5.3, 9],
+      [1.9, 3.0, 10],[4.7, 5.3, 10],
+      [1.9, 3.0, 11],[4.7, 5.3, 11],
+      [1.9, 3.0, 12],[4.7, 5.3, 12],
+      [1.9, 3.0, 13],[4.7, 5.3, 13],
+      [1.9, 3.0, 14],[4.7, 5.3, 14],
+      // second loop of the same highlights (shifted by +5.3s)
+      [5.3, 7.2, 1],[8.3, 10.0, 1],
+      [5.3, 7.2, 2],[8.3, 10.0, 2],
+      [5.3, 7.2, 3],[8.3, 10.0, 3],
+      [5.3, 7.2, 4],[8.3, 10.0, 4],
+      [5.3, 7.2, 5],[8.3, 10.0, 5],
+      [5.3, 7.2, 6],[8.3, 10.0, 6],
+      [5.3, 7.2, 7],[8.3, 10.0, 7],
+      [7.2, 8.3, 8],[10.0, 10.6, 8],
+      [7.2, 8.3, 9],[10.0, 10.6, 9],
+      [7.2, 8.3, 10],[10.0, 10.6, 10],
+      [7.2, 8.3, 11],[10.0, 10.6, 11],
+      [7.2, 8.3, 12],[10.0, 10.6, 12],
+      [7.2, 8.3, 13],[10.0, 10.6, 13],
+      [7.2, 8.3, 14],[10.0, 10.6, 14],
+    ],
   },
   {
     title: 'Даалгавар 4 – Chessboard pattern (medium) - 1.',
@@ -279,7 +329,9 @@ turn_left = <span class="text-code-blue">True</span>
     turn_left = <span class="text-code-blue">not</span> turn_left`,
     videoSrc: '/gifs/karap2/kara4-1.webm',
     imageSrc: '/images/karahacker.png',
-    mapping: [],
+    mapping: [
+      [0.0, 99.0, 2],
+    ],
   },
   {
     title: '',
@@ -303,7 +355,8 @@ export const tasksPage3: Task[] = [
         <span class="text-code-blue">break</span>
     length += 1`,
     videoSrc: '/gifs/karap3/kara-spiral.webm',
-    mapping: [],
+    mapping: [
+    ],
   },
   {
     title: 'Даалгавар 4 – Зургийг урвуулах',
@@ -315,7 +368,8 @@ export const tasksPage3: Task[] = [
         <span class="text-code-blue">else</span>:
             world.<span class="text-code-yellow">setLeaf</span>(x, y, <span class="text-code-blue">True</span>)`,
     videoSrc: '/gifs/karap3/kara-invert.webm',
-    mapping: [],
+    mapping: [
+    ],
   },
   {
     title: 'Даалгавар 5 – Гурвалжин зурах',
@@ -333,7 +387,8 @@ num_rows = 5
         x = start_x + i
         world.<span class="text-code-yellow">setLeaf</span>(x, y, <span class="text-code-blue">True</span>)`,
     videoSrc: '/gifs/karap3/kara-tirangle.webm',
-    mapping: [],
+    mapping: [
+    ],
   },
   {
     title: 'Даалгавар 6 – Төөрдөг байшин (хүнд)',
@@ -353,7 +408,8 @@ num_rows = 5
 
 kara.<span class="text-code-yellow">removeLeaf</span>()`,
     videoSrc: '/gifs/karap3/kara-maze.webm',
-    mapping: [],
+    mapping: [
+    ],
   },
 ]
 

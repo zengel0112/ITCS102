@@ -14,8 +14,15 @@
     <!-- Preload critical font -->
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:wght@400;700&display=swap" rel="stylesheet" />
     <!-- Prefetch likely-needed resources -->
-    <link rel="prefetch" href="/background/blissrainbow.jpg" as="image" />
-    <link rel="prefetch" href="/background/blissrainbowmobile.jpg" as="image" />
+    <link rel="prefetch" href="/ITCS102/background/blissrainbow.jpg" as="image" />
+    <link rel="prefetch" href="/ITCS102/background/blissrainbowmobile.jpg" as="image" />
+    <!-- Set CSS variables for background images immediately -->
+    <style>
+      :root {
+        --bg-desktop: url("/ITCS102/background/blissrainbow.jpg");
+        --bg-mobile: url("/ITCS102/background/blissrainbowmobile.jpg");
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

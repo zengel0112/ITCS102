@@ -40,7 +40,10 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
     // Prefetch video immediately in the background
     const link = document.createElement("link");
     link.rel = "prefetch";
-    link.href = task.videoSrc;
+    link.href = `${import.meta.env.BASE_URL}${task.videoSrc.replace(
+      /^\//,
+      ""
+    )}`;
     link.as = "video";
     document.head.appendChild(link);
 
@@ -51,7 +54,10 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
             setIsVideoVisible(true);
             // Load video when it becomes visible
             if (!video.src || video.src === window.location.href) {
-              video.src = task.videoSrc;
+              video.src = `${import.meta.env.BASE_URL}${task.videoSrc.replace(
+                /^\//,
+                ""
+              )}`;
               video.load();
             }
             observer.unobserve(entry.target);
@@ -78,7 +84,10 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
     // Prefetch video immediately in the background
     const link = document.createElement("link");
     link.rel = "prefetch";
-    link.href = task.videoSrc2;
+    link.href = `${import.meta.env.BASE_URL}${task.videoSrc2.replace(
+      /^\//,
+      ""
+    )}`;
     link.as = "video";
     document.head.appendChild(link);
 
@@ -90,7 +99,9 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
             // Load video when it becomes visible
             if (!video2.src || video2.src === window.location.href) {
               if (task.videoSrc2) {
-                video2.src = task.videoSrc2;
+                video2.src = `${
+                  import.meta.env.BASE_URL
+                }${task.videoSrc2.replace(/^\//, "")}`;
                 video2.load();
               }
             }
@@ -206,7 +217,14 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
           {!videoError && task.videoSrc && (
             <video
               ref={videoRef}
-              src={isVideoVisible ? task.videoSrc : undefined}
+              src={
+                isVideoVisible
+                  ? `${import.meta.env.BASE_URL}${task.videoSrc.replace(
+                      /^\//,
+                      ""
+                    )}`
+                  : undefined
+              }
               className={`kara-gif h-auto rounded-lg ${
                 task.videoSrc2 && !task.code
                   ? "max-w-full md:max-w-[50%]"
@@ -230,7 +248,14 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
           {task.videoSrc2 && !video2Error && (
             <video
               ref={video2Ref}
-              src={isVideo2Visible ? task.videoSrc2 : undefined}
+              src={
+                isVideo2Visible
+                  ? `${import.meta.env.BASE_URL}${task.videoSrc2.replace(
+                      /^\//,
+                      ""
+                    )}`
+                  : undefined
+              }
               className={`kara-gif h-auto rounded-lg ${
                 !task.code ? "max-w-full md:max-w-[50%]" : "max-w-[50%] mx-auto"
               }`}
@@ -247,7 +272,10 @@ const TaskSection = memo(({ task }: TaskSectionProps) => {
           )}
           {task.imageSrc && (
             <img
-              src={task.imageSrc}
+              src={`${import.meta.env.BASE_URL}${task.imageSrc.replace(
+                /^\//,
+                ""
+              )}`}
               alt="Kara hacker"
               className="h-auto rounded-lg max-w-full mx-auto mb-0"
               loading="lazy"
